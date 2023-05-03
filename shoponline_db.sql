@@ -1,6 +1,5 @@
 create database shoponline_db;
 use shoponline_db; 
-
 CREATE TABLE `cart` (
   `ID` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -10,7 +9,6 @@ CREATE TABLE `cart` (
   `image` varchar(200) NOT NULL,
   `brand` varchar(100) NOT NULL
 ) ;
-
 CREATE TABLE `message` (
   `ID` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -19,7 +17,6 @@ CREATE TABLE `message` (
   `number` varchar(20) NOT NULL,
   `message` varchar(500) NOT NULL
 ) ;
-
 CREATE TABLE `orders` (
   `ID` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -38,7 +35,6 @@ CREATE TABLE `orders` (
   `placed_on` varchar(50) NOT NULL,
   `payment_status` varchar(20) NOT NULL DEFAULT "pending"
 ) ;
-
 CREATE TABLE `products` (
   `ID` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -47,7 +43,6 @@ CREATE TABLE `products` (
   `detail` varchar(5000) NOT NULL,
   `brand` varchar(100) NOT NULL
 ) ;
-
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -55,55 +50,39 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `user_type` varchar(100) NOT NULL DEFAULT "user"
 ); 
-
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`ID`);
-
 ALTER TABLE `message`
   ADD PRIMARY KEY (`ID`);
-
-
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`ID`);
-
 ALTER TABLE `products`
   ADD PRIMARY KEY (`ID`);
-
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
-
 ALTER TABLE `cart`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
-
 ALTER TABLE `message`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 ALTER TABLE `orders`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 ALTER TABLE `products`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
-
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 INSERT INTO `cart` (`ID`, `user_id`, `name`, `price`, `quantity`, `image`, `brand`) VALUES
 (1, 1, 'ORIENT WATCH FAG02003W0', 733, 2, 'ORIENT WATCH FAG02003W0.jpg', 'ORIENT'),
 (57, 2, 'ORIENT WATCH RA-AK0008S10B', 1240, 1, 'ORIENT WATCH RA-AK0008S10B.jpg', 'ORIENT'),
 (58, 2, 'ORIENT WATCH RE-AV0B03B00B', 2575, 1, 'ORIENT WATCH RE-AV0B03B00B.jpg', 'ORIENT');  
-
 INSERT INTO `message` (`ID`, `user_id`, `name`, `email`, `number`, `message`) VALUES
 (7, 5, 'Jonny', 'abcd@123.com', '12312', '134'),
 (9, 2, 'Jonny', 'abcd@123.com', '213', '12');
-
 INSERT INTO `orders` (`ID`, `user_id`, `name`, `number`, `email`, `method`, `detail_address`, `commune`, `district`, `city`, `country`, `address`, `total_products`, `total_price`, `placed_on`, `payment_status`) VALUES
 (3, 2, 'Jonny', '0788087260', 'abcd@123.com', 'Payment method', '12 Dong Coi', 'Nam Giang', 'Namtruc', 'Namdinh', 'Việt Namm', '12 Dong Coi, Nam Giang, Namtruc, Namdinh, Việt Namm', '<br>ORIENT WATCH FAG03001D0 (1) <br>ORIENT WATCH FAG02003W0 (1) ', 1665, '01-Aug-2022', 'Pending'),
 (4, 2, 'Jonny', '0788087260', 'abcd@123.com', 'Payment method', '12 Dong Coi', 'Nam Giang', 'Namtruc', 'Namdinh', 'Việt Nam', '12 Dong Coi, Nam Giang, Namtruc, Namdinh, Việt Nam', '<br>ORIENT WATCH RA-AK0008S10B (1) <br>BENTLEY WATCH BL1869-101MKNN-DMK-GL-X (1) ', 1651, '01-Aug-2022', 'pending'),
 (5, 0, 'Jonny', '0789184291', 'abcd@123.com', 'Payment method', '12 Dong Coi', 'Nam Giang', 'Namtruc', 'Namdinh', 'Việt Nam', '12 Dong Coi, Nam Giang, Namtruc, Namdinh, Việt Nam', '<br>ORIENT WATCH FAG03001D0 (2) <br>ORIENT WATCH FAG02003W0 (2) <br>ORIENT WATCH RE-AV0B03B00B (2) <br>Olympia WATCH FA03W0 (2) ', 9946, '01-Aug-2022', 'pending'),
 (6, 0, 'Jonny', '0789184291', 'abcd@123.com', 'card', '12 Dong Coi', 'Nam Giang', 'Namtruc', 'Namdinh', 'Việt Namawefr', '12 Dong Coi, Nam Giang, Namtruc, Namdinh, Việt Namawefr', '<br>ORIENT WATCH RA-AK0008S10B (1) ', 1240, '01-Aug-2022', 'pending'),
 (7, 0, 'Jonny', '0789184291', 'abcd@123.com', 'card', '12 Dong Coi', 'Nam Giang', 'Namtruc', 'Namdinh', 'Việt Namawefr phatdz', '12 Dong Coi, Nam Giang, Namtruc, Namdinh, Việt Namawefr phatdz', '<br>ORIENT WATCH RA-AK0008S10B (1) <br>ORIENT WATCH RE-AV0B03B00B (1) <br>BENTLEY WATCH BL1869-101MKNN-DMK-GL-X (10) ', 7925, '01-Aug-2022', 'pending');
-
-
 INSERT INTO `products` (`ID`, `name`, `price`, `image`, `detail`, `brand`) VALUES
 (1, 'ORIENT WATCH FAG03001D0', 932, 'ORIENT WATCH FAG03001D0.jpg', 'Open Heart design with trendy navy blue di', 'ORIENT'),
 (3, 'ORIENT WATCH RA-AK0008S10B', 1240, 'ORIENT WATCH RA-AK0008S10B.jpg', 'Open Heart design with delicate silver cladding', 'ORIENT'),
@@ -150,8 +129,6 @@ INSERT INTO `products` (`ID`, `name`, `price`, `image`, `detail`, `brand`) VALUE
 (44, 'Freelook WATCH BL15515WB-DMS-GL-T', 397, '35.jpg', 'Subtle silhouette of the Patek Philippe Geneve Nautilus', 'Freelook'),
 (45, 'Freelook WATCH B8774478WD', 584, '36.jpg', 'Elegant, The pinnacle of classic crafting', 'Freelook'),
 (46, 'Freelook WATCH BL45145-T', 845, '37.jpg', 'Elegant, sophisticated and opulent fashion through the ages', 'Freelook');
-
-
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `user_type`) VALUES
 (1, 'admin', 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'admin'), 
 (2, 'abc', 'abcd@123.com', '202cb962ac59075b964b07152d234b70', 'user'),
